@@ -14,6 +14,7 @@ if ! bashio::fs.directory_exists "${CONFIG_DATA_PATH}/etc/wmbusmeters.d"; then
     mkdir -p "${CONFIG_DATA_PATH}/etc/wmbusmeters.d"
 fi
 echo -e "$CONFIG_CONF" > $CONFIG_DATA_PATH/etc/wmbusmeters.conf
+echo -e "meterfiles=${CONFIG_DATA_PATH}/logs/meter_readings" >> ${CONFIG_DATA_PATH}/etc/wmbusmeters.conf
 
 bashio::log.info "Registering meters ..."
 rm -f $CONFIG_DATA_PATH/etc/wmbusmeters.d/*
